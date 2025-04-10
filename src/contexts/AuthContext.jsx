@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import authService from '../services/authService';
 
 // Tạo context để quản lý authentication
@@ -9,6 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   // Kiểm tra nếu người dùng đã đăng nhập trước đó
   useEffect(() => {
@@ -39,6 +41,7 @@ export const AuthProvider = ({ children }) => {
       const response = await authService.login(username, password);
       localStorage.setItem('token', response.token);
       setUser(response.user);
+      navigate('/');
       return response.user;
     } catch (err) {
       setError(err.message || 'Đăng nhập thất bại');
@@ -52,6 +55,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem('token');
     setUser(null);
+    navigate('/login');
   };
 
   const value = {
