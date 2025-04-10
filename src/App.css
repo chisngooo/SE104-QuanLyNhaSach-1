@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;flex-direction: column;
+  min-height: 100vh;
+  background: #fffef9;
+}
+
+/* ========== header ========== */
+
+.header-login {
+  height: 10.25rem;
+  background: #095e5a;
+}
+
+.logo-container {
+  display: inline-block;
+  padding: 1.94rem 3.62rem;
+}
+
+.logo-login {
+  height: 6.3125rem;
+  width: auto;
+  display: block;
+}
+
+/* ========== body ========== */
+
+main.main-content {
+  flex-grow: 1; /* Cho phép nó chiếm hết không gian dọc còn lại */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 10.25rem);
+}
+
+.login-card {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* === Các thành phần bên trong login-card === */
+.login-card h1 {
+  color: #000;
+  font-family: SVN-Gilroy;
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.login-card .input-group {
+  margin-bottom: 2rem;
+}
+
+.login-card .input-group:last-of-type {
+  margin-bottom: 4rem;
+}
+
+.login-card label {
+  display: block;
+  color: #000000;
+  font-family: SVN-Gilroy;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.login-card input[type="text"],
+.login-card input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.8em;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #008080;
+  box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.2);
+}
+
+.login-card .password-wrapper {
+  position: relative;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper .eye-icon { /* Sử dụng class .eye-icon đã thêm */
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #888; /* Màu icon */
+  font-size: 1.1rem; /* Kích thước icon */
+  /* Width/Height thường không cần đặt vì SVG sẽ tự scale theo font-size */
+}
+
+.input-wrapper .eye-icon:hover {
+  color: #555; /* Đổi màu khi hover */
+}
+
+/* Style focus cho icon (khi focus bằng bàn phím) */
+.input-wrapper .eye-icon:focus {
+  outline: 1px dotted #095e5a;
+  outline-offset: 2px;
+}
+
+/* Điều chỉnh padding-right cho input để chữ không bị icon đè lên */
+.login-card input[type="password"] {
+  padding-right: 40px; /* Tăng padding phải để có chỗ cho icon */
+}
+
+.login-card .login-button {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 0.625rem;
+  background: #095e5a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.login-card .login-button:hover {
+  background-color: #046c6c;
+}
