@@ -12,7 +12,28 @@ const sampleBooks = [
   { id: 4, title: 'Cây cam ngọt của tôi', author: 'José Mauro de Vasconcelos', category: 'Tiểu thuyết', publisher: 'NXB Hội Nhà văn', price: '108.000 ₫', stock: 8, status: 'active' },
   { id: 5, title: 'Tôi thấy hoa vàng trên cỏ xanh', author: 'Nguyễn Nhật Ánh', category: 'Tiểu thuyết', publisher: 'NXB Trẻ', price: '83.000 ₫', stock: 0, status: 'inactive' },
   { id: 6, title: 'Đời ngắn đừng ngủ dài', author: 'Robin Sharma', category: 'Kỹ năng sống', publisher: 'NXB Trẻ', price: '60.000 ₫', stock: 15, status: 'active' },
+  { id: 7, title: 'Muôn kiếp nhân sinh', author: 'Nguyên Phong', category: 'Tâm linh', publisher: 'NXB Tổng hợp', price: '139.000 ₫', stock: 20, status: 'active' },
+  { id: 8, title: 'Thiên tài bên trái, kẻ điên bên phải', author: 'Tồn Tại', category: 'Tâm lý học', publisher: 'NXB Lao Động', price: '98.000 ₫', stock: 10, status: 'active' },
+  { id: 9, title: 'Bí mật tư duy triệu phú', author: 'T. Harv Eker', category: 'Kinh doanh', publisher: 'NXB Trẻ', price: '120.000 ₫', stock: 5, status: 'active' },
+  { id: 10, title: 'Hành trình về phương Đông', author: 'Nguyên Phong', category: 'Tâm linh', publisher: 'NXB Văn hóa', price: '86.000 ₫', stock: 9, status: 'active' },
+  { id: 11, title: '7 thói quen của bạn trẻ thành đạt', author: 'Sean Covey', category: 'Kỹ năng sống', publisher: 'NXB Trẻ', price: '90.000 ₫', stock: 13, status: 'active' },
+  { id: 12, title: 'Không gia đình', author: 'Hector Malot', category: 'Tiểu thuyết', publisher: 'NXB Văn học', price: '110.000 ₫', stock: 0, status: 'inactive' },
+  { id: 13, title: 'Sapiens - Lược sử loài người', author: 'Yuval Noah Harari', category: 'Lịch sử', publisher: 'NXB Thế Giới', price: '150.000 ₫', stock: 7, status: 'active' },
+  { id: 14, title: 'Bước chậm lại giữa thế gian vội vã', author: 'Hae Min', category: 'Tâm lý', publisher: 'NXB Hà Nội', price: '89.000 ₫', stock: 6, status: 'active' },
+  { id: 15, title: 'Những tấm lòng cao cả', author: 'Edmondo De Amicis', category: 'Giáo dục', publisher: 'NXB Kim Đồng', price: '72.000 ₫', stock: 17, status: 'active' },
+  { id: 16, title: 'Quẳng gánh lo đi và vui sống', author: 'Dale Carnegie', category: 'Kỹ năng sống', publisher: 'NXB Tổng hợp', price: '95.000 ₫', stock: 11, status: 'active' },
+  { id: 17, title: 'Think and Grow Rich', author: 'Napoleon Hill', category: 'Kinh doanh', publisher: 'NXB Lao Động', price: '130.000 ₫', stock: 4, status: 'active' },
+  { id: 18, title: 'Mắt biếc', author: 'Nguyễn Nhật Ánh', category: 'Tiểu thuyết', publisher: 'NXB Trẻ', price: '75.000 ₫', stock: 22, status: 'active' },
+  { id: 19, title: 'Đi tìm lẽ sống', author: 'Viktor E. Frankl', category: 'Tâm lý học', publisher: 'NXB Trẻ', price: '105.000 ₫', stock: 14, status: 'active' },
+  { id: 20, title: 'Totto-chan bên cửa sổ', author: 'Tetsuko Kuroyanagi', category: 'Giáo dục', publisher: 'NXB Hội Nhà văn', price: '99.000 ₫', stock: 9, status: 'active' },
+  { id: 21, title: 'Giết con chim nhại', author: 'Harper Lee', category: 'Tiểu thuyết', publisher: 'NXB Văn học', price: '88.000 ₫', stock: 3, status: 'active' },
+  { id: 22, title: 'Chuyện con mèo dạy hải âu bay', author: 'Luis Sepúlveda', category: 'Thiếu nhi', publisher: 'NXB Hội Nhà văn', price: '55.000 ₫', stock: 16, status: 'active' },
+  { id: 23, title: 'Cà phê cùng Tony', author: 'Tony Buổi Sáng', category: 'Truyền cảm hứng', publisher: 'NXB Trẻ', price: '82.000 ₫', stock: 20, status: 'active' },
+  { id: 24, title: 'Dám bị ghét', author: 'Ichiro Kishimi & Fumitake Koga', category: 'Tâm lý học', publisher: 'NXB Thế Giới', price: '97.000 ₫', stock: 7, status: 'active' },
+  { id: 25, title: 'Một lít nước mắt', author: 'Kito Aya', category: 'Hồi ký', publisher: 'NXB Văn học', price: '90.000 ₫', stock: 5, status: 'inactive' },
+  { id: 26, title: 'Tâm lý học về tiền', author: 'Morgan Housel', category: 'Kinh tế', publisher: 'NXB Kinh tế', price: '115.000 ₫', stock: 10, status: 'active' }
 ];
+
 
 // Dữ liệu mẫu cho menu sidebar
 const menuItems = [
