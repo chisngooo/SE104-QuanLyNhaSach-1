@@ -7,11 +7,13 @@ html {
 }
 
 body {
+  margin: 0;
+  font-family: Arial, sans-serif;
   font-size: 1.6rem;
   display: flex;
-  flex-direction: column;flex-direction: column;
+  flex-direction: column;
   min-height: 100vh;
-  background: #fffef9;
+  background-color: #f4f4f4;
 }
 
 /* ========== header ========== */
@@ -53,83 +55,116 @@ main.main-content {
 }
 
 /* === Các thành phần bên trong login-card === */
-.login-card h1 {
+.login-card h1,
+.login-form h1 {
   color: #000;
-  font-family: SVN-Gilroy;
+  font-family: system-ui, sans-serif;
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 3rem;
+  text-align: center;
 }
 
-.login-card .input-group {
+.login-card .input-group,
+.login-form .input-group {
   margin-bottom: 2rem;
 }
 
-.login-card .input-group:last-of-type {
-  margin-bottom: 4rem;
+.login-card .input-group:last-of-type,
+.login-form .input-group:last-of-type {
+  margin-bottom: 2.5rem;
 }
 
-.login-card label {
+.login-card label,
+.login-form label {
   display: block;
   color: #000000;
-  font-family: SVN-Gilroy;
+  font-family: system-ui, sans-serif;
   font-size: 1.6rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
+.login-card label .required,
+.login-form label .required {
+  color: #e53935;
+  margin-left: 4px;
+}
+
 .login-card input[type="text"],
-.login-card input[type="password"] {
+.login-card input[type="password"],
+.login-form input[type="text"],
+.login-form input[type="password"] {
   width: 100%;
   padding: 12px 15px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  font-size: 0.8em;
+  font-size: 1.6rem;
   background-color: #ffffff;
   color: #000000;
 }
 
-.login-card input:focus {
+.login-card input:focus,
+.login-form input:focus {
   outline: none;
-  border-color: #008080;
-  box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.2);
+  border-color: #095e5a;
+  box-shadow: 0 0 0 2px rgba(9, 94, 90, 0.2);
 }
 
-.login-card .password-wrapper {
-  position: relative;
+.login-card input.error,
+.login-form input.error {
+  border-color: #e53935;
+  background-color: #fff8f8;
+}
+
+.login-card .error-message,
+.login-form .error-message,
+.login-error {
+  color: #e53935;
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.login-error {
+  background-color: #ffebee;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .input-wrapper {
   position: relative;
 }
 
-.input-wrapper .eye-icon { /* Sử dụng class .eye-icon đã thêm */
+.input-wrapper .eye-icon {
   position: absolute;
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  color: #888; /* Màu icon */
-  font-size: 1.1rem; /* Kích thước icon */
-  /* Width/Height thường không cần đặt vì SVG sẽ tự scale theo font-size */
+  color: #888;
+  font-size: 1.8rem;
 }
 
 .input-wrapper .eye-icon:hover {
-  color: #555; /* Đổi màu khi hover */
+  color: #555;
 }
 
-/* Style focus cho icon (khi focus bằng bàn phím) */
 .input-wrapper .eye-icon:focus {
   outline: 1px dotted #095e5a;
   outline-offset: 2px;
 }
 
-/* Điều chỉnh padding-right cho input để chữ không bị icon đè lên */
-.login-card input[type="password"] {
-  padding-right: 40px; /* Tăng padding phải để có chỗ cho icon */
+.login-card input[type="password"],
+.login-form input[type="password"] {
+  padding-right: 40px;
 }
 
-.login-card .login-button {
+.login-card .login-button,
+.login-form .login-button,
+.logout-button {
   width: 100%;
   padding: 12px 20px;
   border-radius: 0.625rem;
@@ -137,11 +172,181 @@ main.main-content {
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 1.1em;
+  font-size: 1.6rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.login-card .login-button:hover {
+.login-card .login-button:hover,
+.login-form .login-button:hover {
+  background-color: #046c6c;
+}
+
+.login-card .login-button:disabled,
+.login-form .login-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Loading container */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(9, 94, 90, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #095e5a;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Dashboard styles */
+.dashboard-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-header {
+  background: #095e5a;
+  padding: 1.5rem 3rem;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logout-button {
+  width: auto;
+  padding: 8px 16px;
+  font-size: 1.4rem;
+  background-color: #ffffff;
+  color: #095e5a;
+}
+
+.logout-button:hover {
+  background-color: #f0f0f0;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.welcome-section {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.welcome-section h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #095e5a;
+  margin-bottom: 1rem;
+}
+
+.welcome-section p {
+  font-size: 1.6rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.feature-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.feature-card h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #095e5a;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1.4rem;
+  color: #666;
+}
+
+/* 404 Page */
+.not-found {
+  text-align: center;
+  padding: 5rem 2rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found h2 {
+  font-size: 3rem;
+  color: #095e5a;
+  margin-bottom: 1.5rem;
+}
+
+.not-found p {
+  font-size: 1.6rem;
+  color: #666;
+  margin-bottom: 3rem;
+}
+
+.not-found button {
+  padding: 12px 24px;
+  background-color: #095e5a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.not-found button:hover {
   background-color: #046c6c;
 }

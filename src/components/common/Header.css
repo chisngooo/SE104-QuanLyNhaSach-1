@@ -1,0 +1,107 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.header-action {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.header-action.btn-add {
+  background-color: #4caf50;
+  color: white;
+}
+
+.header-action.btn-add:hover {
+  background-color: #45a049;
+}
+
+.header-action.btn-delete {
+  background-color: #f44336;
+  color: white;
+}
+
+.header-action.btn-delete:hover {
+  background-color: #e53935;
+}
+
+.header-action.btn-deselect {
+  background-color: #9e9e9e;
+  color: white;
+}
+
+.header-action.btn-deselect:hover {
+  background-color: #757575;
+}
+
+/* Phần mới cho user và đăng xuất */
+.user-logout {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-left: 1px solid #ddd;
+  padding-left: 20px;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 14px;
+  color: #444;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 15px;
+  background-color: #095e5a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #064541;
+}
+
+.logout-icon {
+  font-size: 16px;
+}
+
+.search-bar {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 250px;
+}
